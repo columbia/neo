@@ -1,0 +1,14 @@
+name: js-escalation
+services:
+  - name: gateway
+    source: gateway
+    database: gateway
+    language: javascript
+    role: gateway
+    aliases: ["gateway", "localhost:8080"]
+  - name: users-svc
+    source: usersvc
+    database: usersvc
+    language: javascript
+    role: internal
+    aliases: ["users-svc", "localhost:9000"]

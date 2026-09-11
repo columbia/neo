@@ -1,0 +1,4 @@
+# Core dependencies for gateway YAML entry point detection
+pydantic>=2.0.0
+PyYAML>=6.0
+langchain-core>=0.1.0

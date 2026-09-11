@@ -1,0 +1,41 @@
+*~
+*.bak
+*.swp.*
+*.sarif
+*.json
+*.code-workspace
+__pycache__
+.env
+
+
+# CodeQL standard library — third-party; run scripts/install_codeql_lib.sh
+codeql-lib/
+
+# Target applications:
+#  - first-party hand-written test apps are vendored (go / java / javascript / python)
+#  - third-party upstream apps are fetched by scripts/install_codebases.sh
+codebases/*
+!codebases/go/
+!codebases/java/
+!codebases/javascript/
+!codebases/python/
+!codebases/README.md
+!codebases/codeql_compile.sh
+# keep config/data JSON that lives inside the vendored test apps
+!codebases/**/*.json
+
+databases/
+.vscode/
+crawler
+
+status/
+src/duck_db/library
+src/_workdir
+src/.tmp_code
+queries/*/tmp/
+
+# cross-service analysis work dir
+global_work/
+
+# generated per-app / per-service work dirs
+codebases/*/neo-workdir/

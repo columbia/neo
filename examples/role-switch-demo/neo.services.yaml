@@ -1,0 +1,31 @@
+# Cross-service / cross-language demo application (paper Figure 1 / 2).
+#
+# A request enters the Java `user-profile` service, which forwards it over HTTP
+# to the Python `user-mgmt` service, whose privileged `update_role` operation is
+# reached without an eligibility check.
+#
+# Run it:
+#   # 1. build a CodeQL DB + per-service flows for EACH service (real pipeline)
+#   #    (see README.md), then:
+#   python src/main.py --app examples/role-switch-demo/neo.services.yaml --global-flows
+#   python src/main.py --app examples/role-switch-demo/neo.services.yaml --validate-flows
+#
+#   # ...or see the offline engine work with synthetic per-service flows:
+#   python examples/run_demo.py
+
+name: role-switch-demo
+
+services:
+  - name: user-profile
+    language: java
+    source: user-profile
+    database: user-profile          # replace with a real CodeQL DB path for the full pipeline
+    role: gateway                    # user requests enter here
+    aliases: ["userprofile", "localhost:8080"]
+
+  - name: user-mgmt
+    language: python
+    source: user-mgmt
+    database: user-mgmt
+    role: internal
+    aliases: ["usermgmt", "localhost:5000"]

@@ -1,0 +1,4 @@
+name: microservices-go
+version: 0.1.0
+dependencies:
+  codeql/go-all: "*"

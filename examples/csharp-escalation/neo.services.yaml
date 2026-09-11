@@ -1,0 +1,14 @@
+name: csharp-escalation
+services:
+  - name: gateway
+    source: gateway
+    database: gateway
+    language: csharp
+    role: gateway
+    aliases: ["gateway", "localhost:8080"]
+  - name: users-svc
+    source: usersvc
+    database: usersvc
+    language: csharp
+    role: internal
+    aliases: ["users-svc", "localhost:9000"]

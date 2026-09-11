@@ -1,0 +1,14 @@
+name: go-escalation
+services:
+  - name: gateway
+    source: gateway
+    database: gateway
+    language: go
+    role: gateway
+    aliases: ["gateway", "localhost:8080"]
+  - name: users-svc
+    source: usersvc
+    database: usersvc
+    language: go
+    role: internal
+    aliases: ["users-svc", "localhost:9000"]

@@ -1,0 +1,20 @@
+name: chain3-escalation
+services:
+  - name: gateway
+    source: gateway
+    database: gateway
+    language: go
+    role: gateway
+    aliases: ["gateway", "localhost:8080"]
+  - name: permissions
+    source: permissions
+    database: permissions
+    language: csharp
+    role: internal
+    aliases: ["permissions-svc", "localhost:8081"]
+  - name: users-svc
+    source: usersvc
+    database: usersvc
+    language: cpp
+    role: internal
+    aliases: ["users-svc", "localhost:9000"]

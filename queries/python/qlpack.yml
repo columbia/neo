@@ -1,0 +1,7 @@
+name: microservices
+version: 0.1.0
+dependencies:
+  # codeql/java-all: "*"
+  codeql/python-all: "*"
+  # codeql/javascript-all: "*"
+  # codeql/cpp-all: "*"
